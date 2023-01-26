@@ -13,31 +13,27 @@ DarkSUSY interface for gamma-ray yield
 -------------------------------------------------------------------*/
 
 double darksusy_gamma (double Egamma){
-
-	int yieldk = 152;
+	char hel='O';
+	int yieldpdg = 111;
+	int diff = 1;
 	int istat;
-	int ch_WW = 13;
-	int ch_ee = 15;
-	int ch_mumu = 17;
-	int ch_tautau = 19;
-	int ch_bb = 25;
-
+	int ch_WW = 24;
+	int ch_mumu = 13;
+	int ch_tautau = 15;
+	int ch_bb = 5;
 	double ds = 0;
 
 	if (Target::p.BR_WW !=0){
-		ds += Target::p.BR_WW * dshayield_(&Target::p.mx, &Egamma, &ch_WW, &yieldk, &istat);
-	}
-	if (Target::p.BR_ee !=0){
-		ds += Target::p.BR_ee * dshayield_(&Target::p.mx, &Egamma, &ch_ee, &yieldk, &istat);
+		ds += Target::p.BR_WW * dsanyield_sim_(&Target::p.mx, &Egamma, &ch_WW, &hel, &yieldpdg, &diff, &istat);
 	}
 	if (Target::p.BR_mumu !=0){
-		ds += Target::p.BR_mumu * dshayield_(&Target::p.mx, &Egamma, &ch_mumu, &yieldk, &istat);
+		ds += Target::p.BR_mumu * dsanyield_sim_(&Target::p.mx, &Egamma, &ch_mumu, &hel, &yieldpdg, &diff, &istat);
 	}
 	if (Target::p.BR_tautau !=0){
-		ds += Target::p.BR_tautau * dshayield_(&Target::p.mx, &Egamma, &ch_tautau, &yieldk, &istat);
+		ds += Target::p.BR_tautau * dsanyield_sim_(&Target::p.mx, &Egamma, &ch_tautau, &hel, &yieldpdg, &diff, &istat);
 	}
 	if (Target::p.BR_bb !=0){
-		ds += Target::p.BR_bb * dshayield_(&Target::p.mx, &Egamma, &ch_bb, &yieldk, &istat);
+		ds += Target::p.BR_bb * dsanyield_sim_(&Target::p.mx, &Egamma, &ch_bb, &hel, &yieldpdg, &diff, &istat);
 	}
 
 	return ds;
@@ -47,31 +43,27 @@ DarkSUSY electron/positron yield
 -------------------------------------------------------------------*/
 
 double darksusy (double Ep){
-
-	int yieldk = 151;
+	char hel='O';
+	int yieldpdg = -11;
+	int diff = 1;
 	int istat;
-	int ch_WW = 13;
-	int ch_ee = 15;
-	int ch_mumu = 17;
-	int ch_tautau = 19;
-	int ch_bb = 25;
-
+	int ch_WW = 24;
+	int ch_mumu = 13;
+	int ch_tautau = 15;
+	int ch_bb = 5;
 	double ds = 0;
 
 	if (Target::p.BR_WW !=0){
-		ds += Target::p.BR_WW * dshayield_(&Target::p.mx, &Ep, &ch_WW, &yieldk, &istat);
-	}
-	if (Target::p.BR_ee !=0){
-		ds += Target::p.BR_ee * dshayield_(&Target::p.mx, &Ep, &ch_ee, &yieldk, &istat);
+		ds += Target::p.BR_WW * dsanyield_sim_(&Target::p.mx, &Ep, &ch_WW, &hel, &yieldpdg, &diff, &istat);
 	}
 	if (Target::p.BR_mumu !=0){
-		ds += Target::p.BR_mumu * dshayield_(&Target::p.mx, &Ep, &ch_mumu, &yieldk, &istat);
+		ds += Target::p.BR_mumu * dsanyield_sim_(&Target::p.mx, &Ep, &ch_mumu, &hel, &yieldpdg, &diff, &istat);
 	}
 	if (Target::p.BR_tautau !=0){
-		ds += Target::p.BR_tautau * dshayield_(&Target::p.mx, &Ep, &ch_tautau, &yieldk, &istat);
+		ds += Target::p.BR_tautau * dsanyield_sim_(&Target::p.mx, &Ep, &ch_tautau, &hel, &yieldpdg, &diff, &istat);
 	}
 	if (Target::p.BR_bb !=0){
-		ds += Target::p.BR_bb * dshayield_(&Target::p.mx, &Ep, &ch_bb, &yieldk, &istat);
+		ds += Target::p.BR_bb * dsanyield_sim_(&Target::p.mx, &Ep, &ch_bb, &hel, &yieldpdg, &diff, &istat);
 	}
 
 	return ds;

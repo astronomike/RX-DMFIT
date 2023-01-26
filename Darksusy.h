@@ -19,7 +19,7 @@ Interface for injection spectrum
 -------------------------------------------------------------------*/
 extern"C" {			
 										
-double dshayield_(double *mwimp, double *emuthr, int *ch,  int *yieldk, int *istat);
+double dsanyield_sim_(double *mwimp, double *e, int *pdg, char *hel, int *yieldpdg, int *diff, int *istat);
 
 }
 
